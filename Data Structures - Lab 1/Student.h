@@ -2,14 +2,7 @@
 #define	STUDENT_H
 #include <string>
 using namespace std;
-enum Grade
-{
-	A,
-	B,
-	C,
-	D,
-	F
-};
+
 struct Course
 {
 	string classname;
@@ -25,16 +18,15 @@ public:
 	void setName(string name_);
 	void setID(string id_);
 	void addCourse(Course course);
-	void removeCourse(string classname_, string semester_);
 
 	string getName() { return name; };
 	string getID() { return id; };
 	float getGPA() { return gpa; };
 	int getNumCourses() { return numCourses; };
-	Course* getCourses();
+	Course* getCourses(Course course);
 
-	float calculateGPA();
-	Course* findCoursesByGrade(Grade grade);
+	void calculateGPA(Course course, float& gpa);
+	Course* findCoursesByGrade(Course course);
 
 private:
 	string name;
